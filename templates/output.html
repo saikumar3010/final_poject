@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submission Output</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('input') }}">Input</a></li>
+
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Thank You for Your Submission!</h1>
+        <p>Your details have been submitted successfully.</p>
+        <div id="output">
+            <p><strong>District Name:</strong> {{ district }}</p>
+            <p><strong>Crop Being Grown:</strong> {{ crop }}</p>
+            <p><strong>Area (acres):</strong> {{ area }}</p>
+            <p><strong>Rainfall:</strong> {{ rainfall }}</p>
+            <p><strong>Max. Temp:</strong> {{ max_temp }}</p>
+            <p><strong>Min. Temp:</strong> {{ min_temp }}</p>
+            <p><strong>Predicted Yield:</strong> {{ yield1 }} kg</p>
+            <p><strong>Total Income:</strong> {{ total_income }}</p>
+            <p><strong>Total Profit:</strong> {{ total_profit }}</p>
+            
+        </div>
+        <a href="{{ url_for('input') }}">Go Back to Form</a>
+    </div>
+</body>
+</html>

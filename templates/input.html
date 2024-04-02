@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Link your CSS file -->
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('input') }}">Input</a></li>
+
+        </ul>
+    </nav>
+    <div class="wrapper"> <!-- Wrap your content in a div with the "wrapper" class -->
+        <h1>Enter Your Data</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <div class="input-box"> <!-- Use "input-box" class for input containers -->
+                <label for="crop">Crop Being Grown:</label><br>
+                <input type="text" id="crop" name="crop"><br>
+            </div>
+            <div class="input-box">
+                <label for="area">Area under cultivation:</label><br>
+                <input type="number" id="area" name="area" step="0.01"><br>
+            </div>
+            <div class="input-box">
+                <label for="matemp">Maximum temperature:</label><br>
+                <input type="number" id="matemp" name="matemp" step="0.1"><br>
+            </div>
+            <div class="input-box">
+                <label for="mitemp">Minimum temperature:</label><br>
+                <input type="number" id="mitemp" name="mitemp" step="0.1"><br>
+            </div>
+            <div class="input-box">
+                <label for="district">District Name:</label><br>
+                <input type="text" id="District" name="district"><br>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+    <link rel="stylesheet" href="C:\Users\patna\OneDrive\Desktop\Academics\PROJECTS\Final project _ c22\static\styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+    <h1>Enter Your Data</h1>
+    <form action="{{ url_for('predict')}}"method="post">
+        <label for="crop">Crop Being Grown:</label><br>
+        <input type="text" id="crop" name="crop"><br>
+        <label for="crop">Rainfall:</label><br>
+        <input type="number" id="district_rainfall" name="rain"><br>
+        <label for="crop">Max. temp:</label><br>
+        <input type="number" id="matemp" name="matemp"><br>
+        <label for="crop">Min. temp:</label><br>
+        <input type="number" id="mitemp" name="mitemp"><br>
+        <label for="district">District Name:</label><br>
+        <input type="text" id="District" name="district"><br>
+
+        <label for="loan">Loan Amount:</label><br>
+        <input type="number" id="loan" name="loan"><br>
+        <label for="land">Land Area under Cultivation:</label><br>
+        <input type="number" id="land" name="land"><br>
+
+        <button type="submit" onclick="window.location.href='output.html';">Submit</button>
+    </form>
+</body>
+</html>-->

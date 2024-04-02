@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rainfall Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 20px;
+        }
+        #map-container {
+            margin-right: 20px; /* Space between map and image display */
+        }
+        #image-display-section {
+            text-align: center; /* Center the image */
+            flex-grow: 1;
+            display: none; /* Initially hidden */
+        }
+        #image-display-section img {
+            max-width: 100%;
+            max-height: 485px;
+            height: auto;
+            border: 1px solid #ccc; /* Adds a border around the image */
+        }
+    </style>
+</head>
+<body>
+    <div id="map-container">
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('input') }}">Input</a></li>
+    
+            </ul>
+        </nav>
+        <nav>
+            <!--<ul>
+                <li><a href="{{ url_for('input') }}">Go to Input Page</a></li>
+            </ul>-->
+        </nav>
+        <h1>Rainfall Data by District</h1>
+        <img src="static/telangana_map.jpg" width="745" height="485" usemap="#Map" />
+        <map name="Map" id="Map">
+            <!-- Example area with data-img attribute instead of href -->
+            <area shape="rect" coords="24,366,86,398" data-img="static/downloaded_images/mandaldata.jsp_s1=33.jpg" />
+            <!-- Add the rest of your area elements here with data-img attributes -->
+        </map>
+    </div>
+
+    <!-- Section to display the clicked image -->
+    <div id="image-display-section">
+        <img id="image-display" src="" alt="Selected District Data">
+    </div>
+
+    <script>
+        // JavaScript to handle clicks on the area elements and display images
+        document.querySelectorAll('#Map area').forEach(area => {
+            area.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default action of the area
+                var imgSrc = this.getAttribute('data-img'); // Get the image source from data-img attribute
+                var displaySection = document.getElementById('image-display-section');
+                var displayImage = document.getElementById('image-display');
+                displayImage.src = imgSrc; // Set the source for the display image
+                displaySection.style.display = 'flex'; // Make the section visible
+            });
+        });
+    </script>
+</body>
+</html>
